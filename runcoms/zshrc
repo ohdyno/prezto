@@ -10,4 +10,15 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Customize to your needs...
+# ASDF-VM
+# Find where asdf should be installed
+ASDF_DIR="${ASDF_DIR:-$HOME/.asdf}"
+
+# Load command
+if [[ -f "$ASDF_DIR/asdf.sh" ]]; then
+    . "$ASDF_DIR/asdf.sh"
+
+    # Load completions
+    fpath=(${ASDF_DIR}/completions $fpath)
+    compinit
+fi
