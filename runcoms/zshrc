@@ -16,9 +16,28 @@ ASDF_DIR="${ASDF_DIR:-$HOME/.asdf}"
 
 # Load command
 if [[ -f "$ASDF_DIR/asdf.sh" ]]; then
-    . "$ASDF_DIR/asdf.sh"
+    source "$ASDF_DIR/asdf.sh"
 
     # Load completions
     fpath=(${ASDF_DIR}/completions $fpath)
     compinit
 fi
+
+# PLAN9="/usr/local/plan9"
+
+path=(
+    $HOME/bin
+    $HOME/.cargo/bin
+    $path
+    /usr/local/plan9/bin    
+)
+
+# Set Java Home
+ASDF_JAVA_HOME="$ASDF_DIR/plugins/java/set-java-home.zsh"
+
+if [[ -f $ASDF_JAVA_HOME ]]; then
+    source "$ASDF_JAVA_HOME"
+fi
+
+alias emacs='/Applications/MacPorts/EmacsMac.app/Contents/MacOS/Emacs'
+alias emacsclient='/Applications/MacPorts/EmacsMac.app/Contents/MacOS/bin/emacsclient'
