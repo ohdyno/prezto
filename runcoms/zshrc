@@ -23,13 +23,13 @@ if [[ -f "$ASDF_DIR/asdf.sh" ]]; then
     compinit
 fi
 
-# PLAN9="/usr/local/plan9"
+PLAN9="/usr/local/plan9"
 
 path=(
     $HOME/bin
     $HOME/.cargo/bin
     $path
-    /usr/local/plan9/bin    
+    $PLAN9/bin    
 )
 
 # Set Java Home
